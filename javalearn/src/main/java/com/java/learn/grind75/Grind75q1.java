@@ -396,5 +396,63 @@ public class Grind75q1 {
         }
     }
 
+    public ListNode reverseList(ListNode head) {
+
+        ListNode prev = null;
+        ListNode curr = head;
+        ListNode next = null;
+
+        while (curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head = prev;
+        return head;
+    }
+
+
+    public ListNode reverseListRecursive(ListNode head) {
+        // Base case: if the head is null or only one element is left
+        if (head == null || head.next == null) {
+            return head;
+        }
+
+        // Recursive case: reverse the rest of the list
+        ListNode reversedListHead = reverseListRecursive(head.next);
+
+        // Adjust pointers to reverse the direction
+        head.next.next = head;
+        head.next = null;
+
+        return reversedListHead;
+    }
+
+
+    //https://leetcode.com/problems/maximum-subarray/description/
+    public int maxSubArraySum(int[] arr) {
+
+        if (arr == null || arr.length == 0) return 0;
+
+        int maxSum = Integer.MIN_VALUE, sum = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+            maxSum = Math.max(maxSum, sum);
+            sum = Math.max(sum, 0);
+        }
+        return maxSum;
+
+    }
+
+    private boolean isOverlapped(int s1, int e1, int s2, int e2) {
+        return Math.max(s1, s2) < Math.min(e1, e2);
+    }
+
+
+
+
+
 }
 

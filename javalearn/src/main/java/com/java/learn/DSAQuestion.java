@@ -1,6 +1,7 @@
 package com.java.learn;
 
 import java.util.Arrays;
+import java.util.TreeMap;
 
 public class DSAQuestion {
 
@@ -71,7 +72,6 @@ public class DSAQuestion {
     public static int maxSubArraySum(int[] arr) {
         int max = Integer.MIN_VALUE;
         int sum = 0;
-        int mof = Integer.MIN_VALUE;
         for (int j : arr) {
             sum += j;
             max = Math.max(max, sum);
@@ -174,5 +174,28 @@ public class DSAQuestion {
             return binarySearchLowerBound(arr, mid + 1, end, target, mid);
         }
     }
+
+    //https://leetcode.com/problems/insert-interval/
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+
+        TreeMap<Integer,Integer> map = new TreeMap<>();
+        for(int inter [] :intervals ){
+            map.put(inter[0],inter[1]);
+        }
+
+
+
+    }
+
+    private class Interval{
+        int start;
+        int end;
+        public Interval(int start, int end) {
+            this.start = start;
+            this.end = end;
+        }
+    }
+
+
 
 }
