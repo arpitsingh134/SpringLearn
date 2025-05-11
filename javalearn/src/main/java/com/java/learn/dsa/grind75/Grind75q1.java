@@ -1,4 +1,4 @@
-package com.java.learn.grind75;
+package com.java.learn.dsa.grind75;
 
 import java.util.Stack;
 
@@ -169,24 +169,6 @@ public class Grind75q1 {
         System.out.println(twos + ":::" + ones);
         return (2 * twos) + (ones >= 1 ? 1 : 0);
 
-    }
-
-
-    private class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
     }
 
 
@@ -377,25 +359,6 @@ public class Grind75q1 {
     }
 
 
-    private class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode() {
-        }
-
-        TreeNode(int val) {
-            this.val = val;
-        }
-
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
     public ListNode reverseList(ListNode head) {
 
         ListNode prev = null;
@@ -449,9 +412,6 @@ public class Grind75q1 {
     private boolean isOverlapped(int s1, int e1, int s2, int e2) {
         return Math.max(s1, s2) < Math.min(e1, e2);
     }
-
-
-
 
 
 }

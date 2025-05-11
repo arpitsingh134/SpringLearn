@@ -1,6 +1,5 @@
-package com.java.learn;
+package com.java.learn.dsa.start;
 
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;

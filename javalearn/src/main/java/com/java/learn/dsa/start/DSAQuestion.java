@@ -1,4 +1,4 @@
-package com.java.learn;
+package com.java.learn.dsa.start;
 
 import java.util.Arrays;
 import java.util.TreeMap;
@@ -176,16 +176,16 @@ public class DSAQuestion {
     }
 
     //https://leetcode.com/problems/insert-interval/
-    public int[][] insert(int[][] intervals, int[] newInterval) {
-
-        TreeMap<Integer,Integer> map = new TreeMap<>();
-        for(int inter [] :intervals ){
-            map.put(inter[0],inter[1]);
-        }
-
-
-
-    }
+//    public int[][] insert(int[][] intervals, int[] newInterval) {
+//
+//        TreeMap<Integer,Integer> map = new TreeMap<>();
+//        for(int inter [] :intervals ){
+//            map.put(inter[0],inter[1]);
+//        }
+//
+//
+//
+//    }
 
     private class Interval{
         int start;

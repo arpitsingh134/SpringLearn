@@ -1,4 +1,4 @@
-package com.java.learn;
+package com.java.learn.dsa.start;
 
 public class JavaLearnMain {
     public static void main(String[] args) {

@@ -1,5 +1,5 @@
 
-package com.java.learn;
+package com.java.learn.dsa.start;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

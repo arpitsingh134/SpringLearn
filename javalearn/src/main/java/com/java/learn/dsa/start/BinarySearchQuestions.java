@@ -1,4 +1,4 @@
-package com.java.learn;
+package com.java.learn.dsa.start;
 
 import java.util.Arrays;
 
@@ -179,6 +179,10 @@ public class BinarySearchQuestions {
             return Arrays.binarySearch(arr, 0, pivot - 1, target);
         }
     }
+
+
+
+
 
 
 }

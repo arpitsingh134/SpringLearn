@@ -1,6 +1,5 @@
-package com.java.learn;
+package com.java.learn.dsa.start;
 
-import java.util.Arrays;
 import java.util.Iterator;
 
 public class OurGenericList<T> implements Iterable<T> {
