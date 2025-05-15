@@ -1,6 +1,9 @@
 package com.java.learn.dsa.grind75;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 public class Week2 {
 
@@ -9,7 +12,14 @@ public class Week2 {
 
 //        System.out.println(week.missingNumber(new int[]{0, 1}));
 
-        System.out.println(week.reverse(1234));
+//        System.out.println(week.reverse(1234));
+
+
+        int[] newArr = {4, 8};
+        int[][] arr = {{0, 0, 0}, {0, 1, 0}, {1, 1, 1}};
+//        int[][] insert = week.insert(arr, newArr);
+        System.out.println(Arrays.deepToString(week.updateMatrix(arr)));
+
     }
 
     public int missingNumber(int[] nums) {
@@ -235,6 +245,87 @@ public class Week2 {
                 k++;
             }
         }
+    }
+
+
+    private void printstack(Stack<int[]> stack) {
+        System.out.print("stack:--> ");
+        for (int[] interval : stack) {
+
+            System.out.print(Arrays.toString(interval) + ",");
+        }
+        System.out.println();
+    }
+
+    public int[][] insert(int[][] intervals, int[] newInterval) {
+        int[][] result = new int[intervals.length + 1][2];
+        int i = 0, j = 0;
+        while (i < intervals.length && intervals[i][1] < newInterval[0]) {
+            result[j++] = intervals[i++];
+        }
+        while (i < intervals.length && intervals[i][0] <= newInterval[1]) {
+            newInterval = getIntersection(intervals[i++], newInterval);
+        }
+        result[j++] = newInterval;
+
+        while (i < intervals.length) {
+            result[j++] = intervals[i++];
+        }
+        return Arrays.copyOf(result, j);
+    }
+
+    private int[] getIntersection(int[] a, int[] b) {
+        return new int[]{Math.min(a[0], b[0]), Math.max(a[1], b[1])};
+    }
+
+    private boolean isOverlapped(int[] a, int[] b) {
+        return Math.max(a[0], b[0]) < Math.min(a[1], b[1]);
+    }
+
+    public int[][] updateMatrix(int[][] mat) {
+        int m = mat.length;
+        int n = mat[0].length;
+
+        Queue<int[]> queue = new LinkedList<>();
+        int[][] result = new int[m][n];
+
+        // Step 1: Initialize result and queue
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (mat[i][j] == 0) {
+                    result[i][j] = 0;
+                    queue.offer(new int[]{i, j});
+                } else {
+                    result[i][j] = -1; // Mark unvisited
+                }
+            }
+        }
+
+
+
+        System.out.println("result ::" + Arrays.deepToString(result));
+
+        int[][] directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+
+        // Step 2: BFS
+        while (!queue.isEmpty()) {
+            int[] cell = queue.poll();
+            int row = cell[0], col = cell[1];
+
+            for (int[] dir : directions) {
+                int r = row + dir[0];
+                int c = col + dir[1];
+
+                if (r >= 0 && r < m && c >= 0 && c < n && result[r][c] == -1) {
+                    result[r][c] = result[row][col] + 1;
+                    queue.offer(new int[]{r, c});
+//                    System.out.println("queue:" + queue);
+                    System.out.println("result ::" + Arrays.deepToString(result));
+                }
+            }
+        }
+
+        return result;
     }
 
 
