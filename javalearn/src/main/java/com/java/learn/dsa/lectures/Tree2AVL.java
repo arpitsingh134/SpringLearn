@@ -1,4 +1,8 @@
 package com.java.learn.dsa.lectures;
 
-public class BSTLec {
+public class Tree2AVL {
+
+
+
+
 }
