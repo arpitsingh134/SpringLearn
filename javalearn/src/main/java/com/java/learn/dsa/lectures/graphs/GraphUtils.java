@@ -99,6 +99,68 @@ public class GraphUtils {
     }
 
 
+    public static ArrayList<Edge>[] createGraphNegative(int v) {
+        ArrayList<Edge>[] graph = new ArrayList[v];
+
+        for (int i = 0; i < v; i++) {
+            graph[i] = new ArrayList<>();
+        }
+
+        // Edges with positive and negative weights (no negative cycle)
+        graph[0].add(new Edge(0, 1, 5));
+        graph[0].add(new Edge(0, 2, 4));
+
+        graph[1].add(new Edge(1, 3, 3));
+        graph[1].add(new Edge(1, 4, -2));
+
+        graph[2].add(new Edge(2, 1, 6));
+        graph[2].add(new Edge(2, 4, 8));
+
+        graph[3].add(new Edge(3, 5, 2));
+
+        graph[4].add(new Edge(4, 3, 7));
+        graph[4].add(new Edge(4, 5, -3));
+
+        graph[5].add(new Edge(5, 6, 2));
+
+        graph[6].add(new Edge(6, 4, 1)); // Back edge (safe, no cycle)
+
+        return graph;
+    }
+
+
+    public static ArrayList<Edge>[] createGraphForBridge() {
+        int v=6;
+        ArrayList<Edge>[] graph = new ArrayList[v];
+
+        for (int i = 0; i < v; i++) {
+            graph[i] = new ArrayList<>();
+        }
+
+        graph[0].add(new Edge(0, 2, 10));
+        graph[0].add(new Edge(0, 1, 20));
+        graph[0].add(new Edge(0, 3, 20));
+
+        graph[1].add(new Edge(1, 0, 2));
+        graph[1].add(new Edge(1, 2, 4));
+
+        graph[2].add(new Edge(2, 0, 20));
+        graph[2].add(new Edge(2, 1, 100));
+
+        graph[3].add(new Edge(3, 0, 10));
+        graph[3].add(new Edge(3, 4, 3));
+        graph[3].add(new Edge(3, 5, 50));
+
+        graph[4].add(new Edge(4, 5, 20));
+        graph[4].add(new Edge(4, 3, 100));
+
+        graph[5].add(new Edge(5, 4, 20));
+        graph[5].add(new Edge(5, 3, 100));
+
+        return graph;
+    }
+
+
     private static ArrayList<Edge>[] createGraph(int v) {
         ArrayList<Edge>[] graph = new ArrayList[v];
 
@@ -131,6 +193,27 @@ public class GraphUtils {
 
         return graph;
     }
+
+    public static ArrayList<Edge>[] createDirectGraphForSCC() {
+        int v = 5;
+        ArrayList<Edge>[] graph = new ArrayList[v];
+
+        for (int i = 0; i < v; i++) {
+            graph[i] = new ArrayList<>();
+        }
+
+        graph[0].add(new Edge(0, 2, 10));
+        graph[0].add(new Edge(0, 3, 10));
+
+        graph[1].add(new Edge(1, 0, 2));
+
+        graph[2].add(new Edge(2, 1, 20));
+
+        graph[3].add(new Edge(3, 4, 3));
+
+        return graph;
+    }
+
 
     private static ArrayList<Edge>[] createGraphWithoutCycle(int v) {
         ArrayList<Edge>[] graph = new ArrayList[v];
